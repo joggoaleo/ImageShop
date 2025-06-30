@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.mapper.CodeGroupMapper">
+
+<insert id="insert">
+INSERT INTO CODE_GROUP(GROUP_CODE,GROUP_NAME) VALUES(#{groupCode},#{groupName})
+</insert>
+
+<update id="update">
+    UPDATE CODE_GROUP
+    SET 
+        GROUP_NAME = #{groupName}
+    WHERE 
+        GROUP_CODE = #{groupCode}
+</update>
+<delete id="delete">
+DELETE FROM CODE_GROUP WHERE GROUP_CODE = #{groupCode}
+</delete>
+
+<select id="selectAll">
+SELECT GROUP_CODE,GROUP_NAME,REG_DATE FROM CODE_GROUP ORDER BY GROUP_CODE DESC, REG_DATE DESC
+</select>
+
+<select id="select">
+SELECT GROUP_CODE,GROUP_NAME FROM CODE_GROUP WHERE GROUP_CODE = #{groupCode}
+</select>
+</mapper>
