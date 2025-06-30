@@ -17,4 +17,11 @@ public class CodeLabelValueServiceImpl implements CodeLabelValueService {
 		return mapper.selectAll();
 	}
 
+	@Override
+	public List<CodeLabelValue> getCodeList(String groupCode) throws Exception {
+		
+		return mapper.getCodeList(groupCode);
+	}
+	
+
 }

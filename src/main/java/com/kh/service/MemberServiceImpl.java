@@ -39,9 +39,14 @@ public class MemberServiceImpl implements MemberService {
 		
 		List<MemberAuth> authList = member.getAuthList();
 		for(MemberAuth e: authList) {
-			
+			if(e==null) {
+				continue;
+			}
+			if(e.equals("")) {
+				continue;
+			}
 			e.setUserNo(member.getUserNo());
-			mapper.insertAuth(memberAuth);
+			mapper.insertAuth(e);
 		}
 		
 	}

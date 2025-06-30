@@ -2,12 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kh.mapper.CodeLabelValueMapper">
 	<select id="selectAll" resultType="com.kh.common.CodeLabelValue">
-	<!--이름이 다를때 alias로 맵핑  -->
-	SELECT group_code AS value,
-		group_name AS label
-		FROM code_group
-		WHERE use_yn = 'Y'
-		ORDER BY group_name
+		<!--이름이 다를때 alias로 맵핑  --> SELECT
+		group_code AS value, group_name AS label FROM code_group WHERE use_yn = 'Y' ORDER BY group_name 
 		<!--Y를 통해서 사용할것들만 거르기  -->
+	</select>
+
+	<select id="getCodeList"
+		resultType="com.kh.common.CodeLabelValue"> 
+		SELECT code_value AS value,
+		code_name AS label 
+		FROM code_detail
+		WHERE group_code = #{groupCode} AND use_yn = 'Y'
+		ORDER BY sort_seq
 	</select>
 </mapper>

@@ -1,6 +1,5 @@
 package com.kh.domain;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.NotBlank;
