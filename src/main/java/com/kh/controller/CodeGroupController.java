@@ -19,7 +19,7 @@ public class CodeGroupController {
 	@Autowired
 	CodeGroupService service;
 	
-	@GetMapping("register")
+	@GetMapping("registerForm")
 	public String registerForm(CodeGroup codeGroup, Model model) throws Exception {
 		log.info("Get Codegroup registerForm");
 		model.addAttribute(codeGroup);

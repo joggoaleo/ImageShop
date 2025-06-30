@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.mapper.CodeDetailMapper">
+<insert id="insert">
+INSERT INTO CODE_DETAIL(GROUP_CODE,CODE_VALUE,CODE_NAME,SORT_SEQ) VALUES(#{groupCode},#{codeValue},#{codeName},#{sortSeq})
+</insert>
+
+<!-- 정렬 순서의 최대값이 null일때 0으로 대체함 --> 
+<!-- ORACLE : NVL(value1, value2) --> 
+<!-- MySQL : IFNULL(value1, value2) -->
+<select id="getMaxSortSeq" resultType = "int">
+SELECT NVL(MAX(SORT_SEQ),0) 
+FROM CODE_DETAIL WHERE GROUP_CODE = #{groupCode}
+</select>
+<select id="selectAll" resultType="CodeDetail">
+SELECT * FROM CODE_DETAIL ORDER BY group_code ASC, sort_seq ASC 
+</select>
+
+<select id="select" resultType="CodeDetail">
+SELECT * FROM CODE_DETAIL WHERE GROUP_CODE = #{groupCode} AND CODE_VALUE =#{codeValue}
+</select>
+<!-- 수정 처리 --> 
+<update id="update"> 
+UPDATE code_detail 
+SET code_name =#{codeName}
+WHERE group_code = #{groupCode}
+AND code_value = #{codeValue} 
+</update> 
+
+<delete id="delete">
+DELETE FROM code_detail
+WHERE group_code = #{groupCode}
+AND code_value = #{codeValue}
+</delete>
+
+</mapper>

@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.domain.CodeGroup;
 
-@Controller 
-@RequestMapping("/codegroup") 
 public interface CodeGroupMapper {
 	
 	public void insert(CodeGroup codegroup) throws Exception;
