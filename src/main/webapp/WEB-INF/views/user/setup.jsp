@@ -19,6 +19,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	<jsp:include page="/WEB-INF/views/common/menu.jsp" />
 	<div align="center">
+
 		<h2>
 			<spring:message code="user.header.register" />
 		</h2>
@@ -45,27 +46,26 @@
 			<button type="submit" id="btnRegister">
 				<spring:message code="action.register" />
 			</button>
-			<button type="submit" id="btnList">
+			<button type="button" id="btnList">
 				<spring:message code="action.list" />
 			</button>
 		</div>
-		<script>
-			$(document).ready(function() {
-				var formObj = $("#member");
-				$("#btnRegister").on("click", function() {
-					formObj.submit();
-				});
-				$("#btnList").on("click", function() {
-					self.location = "list";
-				});
-			});
-		</script>
-
-
 
 
 
 	</div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
+<script>
+	$(document).ready(function() {
+		var formObj = $("#member");
+		$("#btnRegister").on("click", function() {
+			formObj.submit();
+		});
+		$("#btnList").on("click", function() {
+			self.location = "list";
+		});
+	});
+</script>
+
 </html>

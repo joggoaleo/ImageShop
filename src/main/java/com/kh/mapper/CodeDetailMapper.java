@@ -2,8 +2,9 @@ package com.kh.mapper;
 
 import java.util.List;
 
-import com.kh.domain.CodeDetail;
+import org.apache.ibatis.annotations.Mapper;
 
+import com.kh.domain.CodeDetail;
 public interface CodeDetailMapper {
 
 	public void insert(CodeDetail codeDetail) throws Exception;
