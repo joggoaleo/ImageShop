@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.config.SecurityConfig;
 import com.kh.domain.Member;
@@ -13,23 +14,20 @@ import com.kh.mapper.MemberMapper;
 @Service
 public class MemberServiceImpl implements MemberService {
 
-    private final SecurityConfig securityConfig;
 	@Autowired
 	MemberMapper mapper;
 
-    MemberServiceImpl(SecurityConfig securityConfig) {
-        this.securityConfig = securityConfig;
-    }
-	
+	@Transactional
 	@Override
 	public void register(Member member) throws Exception {
 		//회원 등록할 떄, 디폴트 권한값도 같이 할당
 		mapper.insert(member);
 		MemberAuth memberAuth = new MemberAuth();
 		memberAuth.setAuth("ROLE_MEMBER");
+		//member_seq.CURRVAL
 		mapper.insertAuth(memberAuth);
 	}
-
+	@Transactional
 	@Override
 	public void modify(Member member) throws Exception {
 		mapper.update(member);

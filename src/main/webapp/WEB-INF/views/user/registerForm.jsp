@@ -54,6 +54,7 @@
 			<button type="submit" id="btnRegister">
 				<spring:message code="action.register" />
 			</button>
+			<!-- 'ROLE_ADMIN'에게만 표시해줌 -->
 			<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<button type="submit" id="btnList">
 					<spring:message code="action.list" />

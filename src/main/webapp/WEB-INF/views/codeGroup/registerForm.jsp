@@ -36,7 +36,7 @@
 	<button type="submit" id="btnRegister">
 		<spring:message code="action.register" />
 	</button>
-	<button type="submit" id="btnList">
+	<button type="button" id="btnList">
 		<spring:message code="action.list" />
 	</button>
 </div>

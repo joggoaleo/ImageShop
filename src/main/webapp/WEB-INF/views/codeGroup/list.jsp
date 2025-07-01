@@ -23,7 +23,7 @@
 <h2>
 	<spring:message code="codegroup.header.list" />
 </h2>
-<a href="register"><spring:message code="action.new" /></a>
+<a href="registerForm"><spring:message code="action.new" /></a>
 <table border="1">
 	<tr>
 		<th align="center" width="160"><spring:message
